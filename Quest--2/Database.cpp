@@ -30,7 +30,7 @@ float Database::findBalance(int ID, int Pin) {
 	cout << "Could not find account with given ID and Pin" << endl;
 	return 0;
 }
-Account Database::findAccount(int ID, int Pin) {
+Account& Database::findAccount(int ID, int Pin) {
 	for (auto& accountMember : accounts) {
 		if (accountMember.getID() == ID && accountMember.getPin() == Pin) {
 			return accountMember;
