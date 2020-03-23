@@ -24,8 +24,8 @@ int main() {
 			cout << "Enter initial balance: " << endl;
 			float balanceAmount;
 			cin >> balanceAmount;
-			/*Account accountNew(idNum, pinNum);
-			validAccount = bankAccounts.find(accountNew);*/
+			Account accountNew(idNum, pinNum, balanceAmount);
+			//validAccount = bankAccounts.find(accountNew);*/
 			/*if (validAccount == false) {
 				cout << "Bank Member account successfully created. " << endl;
 				bankAccounts.append(newAccount);
