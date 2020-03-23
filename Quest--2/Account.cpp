@@ -54,7 +54,8 @@ int Account::getPin() const {
 	return pinNumber;
 }
 
-void Account::setAcctBalance() const {
+void Account::setAcctBalance(float balance) {
+	acctBalance = balance;
 }
 
 float Account::getAcctBalance() const {
