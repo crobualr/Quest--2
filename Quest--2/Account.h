@@ -21,3 +21,4 @@ private:
 	int pinNumber;
 	float acctBalance;
 };
+void transfer(Account accountFrom, Account accountTo);
