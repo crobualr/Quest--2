@@ -7,7 +7,6 @@ int main() {
 	enum class ATM { newAccount = 1, balance = 2, transfer = 3, logOut = 4, exit = 5 };
 	int bankOption = 0;
 	
-
 	while ((ATM)bankOption != ATM::exit) {
 		cout << "Choose from the following Banking Options: " << endl;
 		cout << "Press (1) to create a new account:\nPress (2) to check balance:\nPress (3) to transfer:\nPress (4) to log out\nPress (5) to exit" << endl;
@@ -41,7 +40,7 @@ int main() {
 
 			cout << "Enter Account Member Pin: " << endl;
 
-			cout << "Account Balance: " << endl;
+			cout << "Account Balance: " << endl; 
 			break;
 		case ATM::transfer:
 
