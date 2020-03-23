@@ -8,7 +8,7 @@ void transfer(Account accountFrom, Account accountTo) {
 	float amountFrom;
 	cin >> amountFrom;
 	accountFrom.payin(amountFrom);
-
+	
 	cout << "Enter Account Deposit Amount: " << endl;
 	float amountTo;
 	cin >> amountTo;
