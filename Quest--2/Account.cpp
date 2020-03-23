@@ -2,8 +2,8 @@
 #include <iostream>
 using namespace std;
 
-void transfer(int accountFrom, int accountTo);
-void transfer(int accountFrom, int accountTo) {
+void transfer(Account accountFrom, Account accountTo);
+void transfer(Account accountFrom, Account accountTo) {
 	//cout << "Enter Account Deposit Amount: " << endl;
 }
 
