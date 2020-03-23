@@ -6,15 +6,14 @@ using namespace std;
 int main() {
 	enum class ATM { newAccount = 1, balance = 2, transfer = 3, logOut = 4, exit = 5 };
 	int bankOption = 0;
-	//Database bankAccounts;
-	//bool validAccount;
+	
 
 	while ((ATM)bankOption != ATM::exit) {
 		cout << "Choose from the following Banking Options: " << endl;
 		cout << "Press (1) to create a new account:\nPress (2) to check balance:\nPress (3) to transfer:\nPress (4) to log out\nPress (5) to exit" << endl;
 		cin >> bankOption;
 		switch ((ATM)bankOption) {
-		case ATM::newAccount:
+		case ATM::newAccount: {
 			cout << "Create a (5 Digit) Account Member ID: " << endl;
 			int idNum;
 			cin >> idNum;
@@ -25,7 +24,9 @@ int main() {
 			float balanceAmount;
 			cin >> balanceAmount;
 			Account accountNew(idNum, pinNum, balanceAmount);
-			//validAccount = bankAccounts.find(accountNew);*/
+			//Database bankAccounts;
+			//bool validAccount;
+			//validAccount = bankAccounts.find(accountNew);
 			/*if (validAccount == false) {
 				cout << "Bank Member account successfully created. " << endl;
 				bankAccounts.append(newAccount);
@@ -34,6 +35,7 @@ int main() {
 				cout << "Account Member ID or Pin Invalid. Please try again. " << endl;
 			}*/
 			break;
+		}
 		case ATM::balance:
 			cout << "Enter Account Member ID: " << endl;
 
