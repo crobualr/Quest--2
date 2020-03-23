@@ -16,8 +16,9 @@ void transfer(Account accountFrom, Account accountTo) {
 	if (accountFrom.payin(amountFrom) == true && accountTo.payout(amountTo) == true) {
 		float newBalance = accountFrom.getAcctBalance() - amountFrom;
 		accountFrom.setAcctBalance(newBalance);
+		cout << "Account Member ID: " << accountFrom.getID() << " New Account Balance: " << accountFrom.getAcctBalance() << endl;
 		float addBalance = accountTo.getAcctBalance() + amountTo;
-		accountTo.setAcctBalance(addBalance);
+		accountTo.setAcctBalance(addBalance); 
 	}
 }
 
