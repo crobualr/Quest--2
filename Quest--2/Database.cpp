@@ -9,11 +9,16 @@ void Database::append(Account const& a) {
 
 bool Database::find(Account const& account) {
 	//vector<Account>::iterator it = accounts.begin(); it != accounts.end(); it++ 
-	vector<Account>::iterator it = std::find(accounts.begin(), accounts.end(), account);
+	/*vector<Account>::iterator it = std::find(accounts.begin(), accounts.end(), account);
 	if (it != accounts.end()) {
 		return true;
+	}*/
+	
+	for (auto& accountMember : accounts) {
+		if (accountMember.getID() == account.getID()) {
+			 return true;
+		}
 	}
-
 	return false;
 }
 
