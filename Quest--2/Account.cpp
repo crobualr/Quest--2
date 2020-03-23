@@ -4,7 +4,15 @@ using namespace std;
 
 void transfer(Account accountFrom, Account accountTo);
 void transfer(Account accountFrom, Account accountTo) {
-	//cout << "Enter Account Deposit Amount: " << endl;
+	cout << "Enter Account Withdrawal Amount: " << endl;
+	float amountFrom;
+	cin >> amountFrom;
+	accountFrom.payin(amountFrom);
+
+	cout << "Enter Account Deposit Amount: " << endl;
+	float amountTo;
+	cin >> amountTo;
+	accountTo.payout(amountTo);
 }
 
 /*Account::Account(){}*/
