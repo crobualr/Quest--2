@@ -8,7 +8,7 @@ int main() {
 	int bankOption = 0;
 	Database bankAccounts;
 	int IDMember;
-	int PINMember; //int idNum; int pinNum;
+	int PINMember; 
 	while ((ATM)bankOption != ATM::exit) {
 		cout << "Choose from the following Banking Options: " << endl;
 		cout << "Press (1) to create a new account:\nPress (2) to check balance:\nPress (3) to transfer:\nPress (4) to log out\nPress (5) to exit" << endl;
