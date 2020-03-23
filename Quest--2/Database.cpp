@@ -27,8 +27,16 @@ float Database::findBalance(int ID, int Pin) {
 			return accountMember.getAcctBalance();
 		}
 	}
-	cout << "Could not find account balance with given ID and Pin" << endl;
+	cout << "Could not find account with given ID and Pin" << endl;
 	return 0;
+}
+Account Database::findAccount(int ID, int Pin) {
+	for (auto& accountMember : accounts) {
+		if (accountMember.getID() == ID && accountMember.getPin() == Pin) {
+			return accountMember;
+		}
+	}
+	cout << "Could not find account with given ID and Pin" << endl;
 }
 vector<Account> Database::getAccounts() const {
 	return accounts;
