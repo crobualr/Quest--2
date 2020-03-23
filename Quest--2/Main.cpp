@@ -6,7 +6,7 @@ using namespace std;
 int main() {
 	enum class ATM { newAccount = 1, balance = 2, transfer = 3, logOut = 4, exit = 5 };
 	int bankOption = 0;
-	
+	Database bankAccounts;
 	while ((ATM)bankOption != ATM::exit) {
 		cout << "Choose from the following Banking Options: " << endl;
 		cout << "Press (1) to create a new account:\nPress (2) to check balance:\nPress (3) to transfer:\nPress (4) to log out\nPress (5) to exit" << endl;
@@ -23,30 +23,31 @@ int main() {
 			float balanceAmount;
 			cin >> balanceAmount;
 			Account accountNew(idNum, pinNum, balanceAmount);
-			//Database bankAccounts;
-			//bool validAccount;
-			//validAccount = bankAccounts.find(accountNew);
-			/*if (validAccount == false) {
+			bool validAccount;
+			validAccount = bankAccounts.find(accountNew);
+			if (validAccount == false) {
 				cout << "Bank Member account successfully created. " << endl;
-				bankAccounts.append(newAccount);
+				bankAccounts.append(accountNew);
 			}
 			else {
-				cout << "Account Member ID or Pin Invalid. Please try again. " << endl;
-			}*/
+				cout << "Account Member ID Invalid. Please try again. " << endl;
+			}
 			break;
 		}
 		case ATM::balance:
 			cout << "Enter Account Member ID: " << endl;
-
+			int IDMember;
+			cin >> IDMember;
+			//if (bankAccounts.getAccounts())
 			cout << "Enter Account Member Pin: " << endl;
-
+			int PINMember;
+			cin >> PINMember;
+			
 			cout << "Account Balance: " << endl; 
 			break;
 		case ATM::transfer:
 
 			cout << "Transfer from: Enter Account Member ID: " << endl;
-
-			cout << "Enter Account Withdrawal Amount: " << endl;
 
 			cout << "Transfer to: Enter Account Member ID: " << endl;
 
