@@ -50,7 +50,7 @@ int main() {
 			cout << "Account Balance: " << amount << endl;
 			
 			break; }
-		case ATM::transfer:
+		case ATM::transfer: {
 			cout << "Transfer from: Enter Account Member ID: " << endl;
 			cin >> IDMember;
 			cout << "Transfer from: Enter Account Member Pin: " << endl;
@@ -60,8 +60,9 @@ int main() {
 			cin >> IDMember;
 			cout << "Transfer to: Enter Account Member Pin: " << endl;
 			cin >> PINMember;
-
-			break;
+			Account& const account2 = bankAccounts.findAccount(IDMember, PINMember);
+			transfer(account1, account2);
+			break; }
 		case ATM::logOut:
 			char acctLogout;
 			cout << "Do you wish to log in to another account?\nPress (Y)es or (N)o" << endl;
@@ -76,7 +77,7 @@ int main() {
 				IDMember = 0;
 				PINMember = 0;
 			}
-			break;
+			break; 
 		case ATM::exit:
 			cout << "Exiting program" << endl;
 			break;
