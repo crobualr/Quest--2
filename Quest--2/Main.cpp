@@ -23,7 +23,7 @@ int main() {
 			float balanceAmount;
 			cin >> balanceAmount;
 			if (balanceAmount <= 0) {
-				cout << "Balance invalid! Initial Balance must be at least $5.00" << endl;
+				cout << "Balance invalid! Initial Balance must be at least 5.00" << endl;
 				cout << "Enter initial balance" << endl;
 				cin >> balanceAmount;
 			}
@@ -40,21 +40,27 @@ int main() {
 			break;
 		}
 		case ATM::balance: {
-			float amount = bankAccounts.findBalance(IDMember, PINMember);
-			cout << "Account Balance: " << amount << endl;
-			if (amount == 0) {
+			if (IDMember == 0 || PINMember == 0) {
 				cout << "Enter Correct Account Member ID: " << endl;
 				cin >> IDMember;
 				cout << "Enter Correct Account Member Pin: " << endl;
 				cin >> PINMember;
 			}
+			float amount = bankAccounts.findBalance(IDMember, PINMember);
+			cout << "Account Balance: " << amount << endl;
+			
 			break; }
 		case ATM::transfer:
 			cout << "Transfer from: Enter Account Member ID: " << endl;
+			cin >> IDMember;
 			cout << "Transfer from: Enter Account Member Pin: " << endl;
+			cin >> PINMember;
+			Account& const account1 = bankAccounts.findAccount(IDMember, PINMember);
 			cout << "Transfer to: Enter Account Member ID: " << endl;
+			cin >> IDMember;
 			cout << "Transfer to: Enter Account Member Pin: " << endl;
-			
+			cin >> PINMember;
+
 			break;
 		case ATM::logOut:
 			char acctLogout;
