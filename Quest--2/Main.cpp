@@ -7,6 +7,8 @@ int main() {
 	enum class ATM { newAccount = 1, balance = 2, transfer = 3, logOut = 4, exit = 5 };
 	int bankOption = 0;
 	Database bankAccounts;
+	int IDMember;
+	int PINMember; //int idNum; int pinNum;
 	while ((ATM)bankOption != ATM::exit) {
 		cout << "Choose from the following Banking Options: " << endl;
 		cout << "Press (1) to create a new account:\nPress (2) to check balance:\nPress (3) to transfer:\nPress (4) to log out\nPress (5) to exit" << endl;
@@ -14,15 +16,13 @@ int main() {
 		switch ((ATM)bankOption) {
 		case ATM::newAccount: {
 			cout << "Create a (5 Digit) Account Member ID: " << endl;
-			int idNum;
-			cin >> idNum;
+			cin >> IDMember;
 			cout << "Create a (4 Digit) Account Member Pin: " << endl;
-			int pinNum;
-			cin >> pinNum;
+			cin >> PINMember;
 			cout << "Enter initial balance: " << endl;
 			float balanceAmount;
 			cin >> balanceAmount;
-			Account accountNew(idNum, pinNum, balanceAmount);
+			Account accountNew(IDMember, PINMember, balanceAmount);
 			bool validAccount;
 			validAccount = bankAccounts.find(accountNew);
 			if (validAccount == false) {
@@ -35,12 +35,10 @@ int main() {
 			break;
 		}
 		case ATM::balance:
-			cout << "Enter Account Member ID: " << endl;
-			int IDMember;
+			/*cout << "Enter Account Member ID: " << endl;
 			cin >> IDMember;
 			cout << "Enter Account Member Pin: " << endl;
-			int PINMember;
-			cin >> PINMember;
+			cin >> PINMember;*/
 			cout << "Account Balance: " << bankAccounts.findBalance(IDMember, PINMember) << endl; 
 			break;
 		case ATM::transfer:
@@ -48,16 +46,21 @@ int main() {
 			cout << "Transfer from: Enter Account Member Pin: " << endl;
 			cout << "Transfer to: Enter Account Member ID: " << endl;
 			cout << "Transfer to: Enter Account Member Pin: " << endl;
+			
 			break;
 		case ATM::logOut:
-			char acctMember;
+			char acctLogout;
 			cout << "Do you wish to log in to another account?\nPress (Y)es or (N)o" << endl;
-			cin >> acctMember;
-			if (acctMember == 'y' || acctMember == 'Y') {
+			cin >> acctLogout;
+			if (acctLogout == 'y' || acctLogout == 'Y') {
 				cout << "Enter Account Member ID: " << endl;
-
+				cin >> IDMember;
 				cout << "Enter Account Member Pin: " << endl;
-
+				cin >> PINMember;
+			}
+			else {
+				IDMember = 0;
+				PINMember = 0;
 			}
 			break;
 		case ATM::exit:
