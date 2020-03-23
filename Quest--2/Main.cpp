@@ -38,18 +38,16 @@ int main() {
 			cout << "Enter Account Member ID: " << endl;
 			int IDMember;
 			cin >> IDMember;
-			//if (bankAccounts.getAccounts())
 			cout << "Enter Account Member Pin: " << endl;
 			int PINMember;
 			cin >> PINMember;
-			
-			cout << "Account Balance: " << endl; 
+			cout << "Account Balance: " << bankAccounts.findBalance(IDMember, PINMember) << endl; 
 			break;
 		case ATM::transfer:
 			cout << "Transfer from: Enter Account Member ID: " << endl;
-
+			cout << "Transfer from: Enter Account Member Pin: " << endl;
 			cout << "Transfer to: Enter Account Member ID: " << endl;
-
+			cout << "Transfer to: Enter Account Member Pin: " << endl;
 			break;
 		case ATM::logOut:
 			char acctMember;
