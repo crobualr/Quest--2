@@ -4,13 +4,10 @@ using namespace std;
 
 void transfer(int accountFrom, int accountTo);
 void transfer(int accountFrom, int accountTo) {
-	cout << "Enter Account Deposit Amount: " << endl;
+	//cout << "Enter Account Deposit Amount: " << endl;
 }
 
-//Account::Account(){
-//	acctNumber = null;
-//
-//}
+/*Account::Account(){}*/
 
 Account::Account(int id, int pin, float balance) {
 	acctNumber = id;
@@ -41,6 +38,7 @@ bool Account::payout(float amount)
 }
 
 void Account::setID(int id) {
+	acctNumber = id;
 }
 
 int Account::getID() const {
@@ -48,6 +46,7 @@ int Account::getID() const {
 }
 
 void Account::setPin(int pin) {
+	pinNumber = pin;
 }
 
 int Account::getPin() const {
