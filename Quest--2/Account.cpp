@@ -13,6 +13,12 @@ void transfer(Account accountFrom, Account accountTo) {
 	float amountTo;
 	cin >> amountTo;
 	accountTo.payout(amountTo);
+	if (accountFrom.payin(amountFrom) == true && accountTo.payout(amountTo) == true) {
+		float newBalance = accountFrom.getAcctBalance() - amountFrom;
+		accountFrom.setAcctBalance(newBalance);
+		float addBalance = accountTo.getAcctBalance() + amountTo;
+		accountTo.setAcctBalance(addBalance);
+	}
 }
 
 /*Account::Account(){}*/
@@ -29,6 +35,10 @@ bool Account::payin(float amount)
 		cout << "Enter a valid amount" << endl;
 		return false;
 	}
+	else if (amount > acctBalance) {
+		cout << "Insufficient funds. Enter a valid amount: " << endl;
+		return false;
+	}
 	return true;
 }
 
@@ -36,10 +46,6 @@ bool Account::payout(float amount)
 {
 	if (amount < 0) {
 		cout << "Enter a valid amount" << endl;
-		return false;
-	}
-	else if (amount > acctBalance) {
-		cout << "Insufficient funds. Enter a valid amount: " << endl;
 		return false;
 	}
 	return true;
