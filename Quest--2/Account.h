@@ -13,7 +13,7 @@ public:
 	void setPin(int pin);
 	int getPin() const;
 
-	void setAcctBalance() const;
+	void setAcctBalance(float balance);
 	float getAcctBalance() const;
 
 private:
