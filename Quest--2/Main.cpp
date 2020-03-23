@@ -19,9 +19,14 @@ int main() {
 			cin >> IDMember;
 			cout << "Create a (4 Digit) Account Member Pin: " << endl;
 			cin >> PINMember;
-			cout << "Enter initial balance: " << endl;
+			cout << "Enter initial balance : " << endl;
 			float balanceAmount;
 			cin >> balanceAmount;
+			if (balanceAmount <= 0) {
+				cout << "Balance invalid! Initial Balance must be at least $5.00" << endl;
+				cout << "Enter initial balance" << endl;
+				cin >> balanceAmount;
+			}
 			Account accountNew(IDMember, PINMember, balanceAmount);
 			bool validAccount;
 			validAccount = bankAccounts.find(accountNew);
@@ -34,13 +39,16 @@ int main() {
 			}
 			break;
 		}
-		case ATM::balance:
-			/*cout << "Enter Account Member ID: " << endl;
-			cin >> IDMember;
-			cout << "Enter Account Member Pin: " << endl;
-			cin >> PINMember;*/
-			cout << "Account Balance: " << bankAccounts.findBalance(IDMember, PINMember) << endl; 
-			break;
+		case ATM::balance: {
+			float amount = bankAccounts.findBalance(IDMember, PINMember);
+			cout << "Account Balance: " << amount << endl;
+			if (amount == 0) {
+				cout << "Enter Correct Account Member ID: " << endl;
+				cin >> IDMember;
+				cout << "Enter Correct Account Member Pin: " << endl;
+				cin >> PINMember;
+			}
+			break; }
 		case ATM::transfer:
 			cout << "Transfer from: Enter Account Member ID: " << endl;
 			cout << "Transfer from: Enter Account Member Pin: " << endl;
